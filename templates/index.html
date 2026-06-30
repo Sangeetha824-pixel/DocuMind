@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocuMind | PDF RAG Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">D</div>
+        <div>
+          <p class="brand-name">DocuMind</p>
+          <p class="brand-subtitle">RAG research assistant</p>
+        </div>
+      </div>
+
+      <section class="upload-card" aria-labelledby="uploadTitle">
+        <div>
+          <h1 id="uploadTitle">Chat with your PDFs</h1>
+          <p>Upload a document, index its content locally, and ask grounded questions with source-backed answers.</p>
+        </div>
+        <input type="file" id="fileInput" accept="application/pdf" hidden />
+        <button class="primary-action" id="uploadBtn" type="button">
+          <span aria-hidden="true">+</span>
+          Upload PDF
+        </button>
+        <p class="status-line" id="uploadStatus">PDF files up to 25 MB are supported.</p>
+      </section>
+
+      <section class="document-panel" aria-labelledby="documentTitle">
+        <div class="section-heading">
+          <h2 id="documentTitle">Documents</h2>
+          <span id="docCount">0</span>
+        </div>
+        <div class="doc-list" id="docList">
+          <div class="empty-note">No documents indexed yet.</div>
+        </div>
+      </section>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyeline">Active workspace</p>
+          <h2 id="activeDocName">No document selected</h2>
+        </div>
+        <div class="model-pill" id="modelStatus">Retrieval ready</div>
+      </header>
+
+      <section class="chat-card" aria-label="Document chat">
+        <div class="messages" id="messages">
+          <div class="welcome-panel">
+            <div class="welcome-icon" aria-hidden="true">PDF</div>
+            <h3>Start with a PDF</h3>
+            <p>Once uploaded, the document is split into searchable chunks. Ask about summaries, clauses, dates, definitions, or any detail you need to locate quickly.</p>
+          </div>
+        </div>
+
+        <form id="chatForm" class="composer">
+          <label class="visually-hidden" for="questionInput">Ask a question about the selected PDF</label>
+          <input
+            type="text"
+            id="questionInput"
+            placeholder="Ask a question about the selected PDF..."
+            autocomplete="off"
+            disabled
+          />
+          <button type="submit" id="sendBtn" disabled>Ask</button>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+flask>=3.0,<4
+pypdf>=4.3,<6
+scikit-learn>=1.7,<2
+numpy>=2.0,<3
+anthropic>=0.34,<1
+python-dotenv>=1.0,<2
