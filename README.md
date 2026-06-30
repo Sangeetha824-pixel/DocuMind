@@ -4,6 +4,8 @@ DocuMind is a professional Flask-based PDF question-answering app. Upload a PDF,
 index it locally with TF-IDF retrieval, and ask grounded questions through a clean
 chat workspace.
 
+![DocuMind PDF RAG chatbot interface](docs/assets/documind-screenshot.png)
+
 ## Features
 
 - PDF upload with secure filename handling and a 25 MB size limit
